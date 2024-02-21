@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Form</title>
+    <!--Google Font-->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap" rel="stylesheet">
+    <!--Stylesheet-->
+    <link rel="stylesheet" href="style.css">
+    <!--Signaure pad link-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/4.1.7/signature_pad.umd.min.js"></script>
+</head>
+
+<body>
+
+    <section class="container">
+        <h1>Site Report Sheet</h1>
+
+        <form action="#" class="form">
+
+            <div class="outline">
+                <div class="row">
+                    <div class="column">
+                        <label for="client">Client details</label>
+                        <textarea id="client" name="client" placeholder="Enter details here.." rows="3"></textarea>
+                    </div>
+                </div>
+            </div> <br>
+            <div class="outline">
+                <div class="row">
+                    <div class="column">
+                        <label for="site">Site Name & Address</label>
+                        <textarea id="issue" name="issue" placeholder="Enter details here..." rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <div class="input-box">
+                        <label>WIS Number</label>
+                        <input type="text" required />
+                    </div>
+
+                    <div class="input-box" id="date">
+                        <label>Date</label>
+                        <input type="date" required />
+                    </div>
+                </div>
+            </div>
+            <br>
+
+
+            <!--Need Box here for Engineers Comments-->
+            <div class="outline">
+                <div class="row">
+                    <div class="column">
+                        <label for="client">Engineer's Comments</label>
+                        <textarea id="client" name="client" placeholder="Enter details here.." rows="3"></textarea>
+                    </div>
+                </div>
+            </div> <br>
+
+            <div class="outline">
+                <h4>THE ABOVE IS CERTIFIED CORRECT AND SYSTEM HAS BEEN LEFT IN <u>WORKING ORDER</u></h4> <br>
+
+                <div class="column">
+                    <div class="input-box">
+                        <label id="name">Name</label>
+                        <input type="text" required />
+                    </div>
+                </div>
+                <br>
+
+                <!--Signature pad 1 -->
+                <label>Signature</label> <br><br>
+                <form id="signatureForm">
+                    <div class="signature-pad" id="signaturePad1">
+                        <canvas></canvas>
+                    </div>
+                    <button type="button" onclick="clearSignature(1)">Clear</button>
+
+                    <div class="column">
+                        <div class="input-box">
+                            <label>On Behalf Of</label>
+                            <input type="text" required />
+                        </div>
+                        <div class="input-box">
+                            <label>Position</label>
+                            <input type="text" required />
+                        </div>
+
+                        <div class="input-box" id="date">
+                            <label>Date</label>
+                            <input type="date" required />
+                        </div>
+
+                        <div class="input-box">
+                            <label>Engineer's Name</label>
+                            <input type="text" required />
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <!--Signature 2-->
+                    <label>Engineer's Signature</label> <br><br>
+                    <div class="signature-pad" id="signaturePad2">
+                        <canvas></canvas>
+                    </div>
+                    <button type="button" onclick="clearSignature(2)">Clear</button>
+
+                    <br>
+
+                    <h4>THE ABOVE IS CERTIFIED CORRECT AND SYSTEM HAS BEEN LEFT <U>UNOPERATIONAL</U></h4>
+
+                    <div class="column">
+                        <div class="input-box">
+                            <label>Name</label>
+                            <input type="text" required />
+                        </div>
+                    </div>
+                    <br>
+                    <!--Signature 3-->
+                    <label>Signature</label> <br><br>
+                    <div class="signature-pad" id="signaturePad3">
+                        <canvas></canvas>
+                    </div>
+                    <button type="button" onclick="clearSignature(3)">Clear</button>
+
+
+                    <div class="column">
+                        <div class="input-box">
+                            <label>On Behalf Of</label>
+                            <input type="text" required />
+                        </div>
+                        <div class="input-box">
+                            <label>Position</label>
+                            <input type="text" required />
+                        </div>
+
+                        <div class="input-box" id="date">
+                            <label>Date</label>
+                            <input type="date" required />
+                        </div>
+                        <div class="input-box">
+                            <label>Engineer's Name</label>
+                            <input type="text" required />
+                        </div>
+
+                    </div>
+
+                    <br>
+                    <label>Engineer's Signature</label> <br><br>
+                    <div class="signature-pad" id="signaturePad4">
+                        <canvas></canvas>
+                    </div>
+                    <button type="button" onclick="clearSignature(4)">Clear</button>
+
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/signature_pad/1.5.3/signature_pad.min.js"></script>
+            <script>
+                // Initialize signature pads
+                var signaturePads = [];
+                for (var i = 1; i <= 4; i++) {
+                    var canvas = document.querySelector('#signaturePad' + i + ' canvas');
+                    var signaturePad = new SignaturePad(canvas);
+                    signaturePads.push(signaturePad);
+                }
+
+                // Function to clear signature
+                function clearSignature(padIndex) {
+                    signaturePads[padIndex - 1].clear();
+                }
+
+                // Form submission handling (just console logging signatures for demonstration)
+                document.getElementById('signatureForm').addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    var signatures = signaturePads.map(function (signaturePad) {
+                        return signaturePad.toDataURL(); // You can customize this based on your requirements
+                    });
+                    console.log('Signatures:', signatures);
+                    // Here you can submit the signatures via AJAX or perform any other action
+                });
+            </script>
+
+            </div>
+            </div>
+            <div>
+                <button class="submit-button">Submit</button>
+            </div>
+        </form>
+        </form>
+    </section>
+    </div>
+</body>
+
+</html>
