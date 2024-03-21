@@ -13,7 +13,7 @@ body {
     justify-content: center;
     height: 100%;
     width: 100%;
-    background: #b0cac7;
+    background: #b5c5c4;
 }
 
 .container {
@@ -50,12 +50,14 @@ textarea {
     border-radius: 2px;
     border: 2px solid #707070;
     outline: none;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 50, 0.3)
 }
 
 .outline {
-    border: 2px solid #91898d85;
-    padding: 3%;
-    border-style:ridge;
+    padding: 10px;
+    border-style:solid;
+    border-width: 20px;
+    border-color: #c9bdc756;
 }
 
 textarea::placeholder {
@@ -70,6 +72,7 @@ textarea::placeholder {
 .form .input-box {
     width: 100%;
     margin-top: 10px;
+    
 }
 
 .input-box label {
@@ -178,12 +181,16 @@ button#clear {
     height: 100%;
     width: 40%;
     size: 0dvh;
-    background: #da2222;
+    background: #999595;
     border: 1px solid transparent;
     color: #fff;
     font-weight: 600;
     margin: 3% 50% 0% 30%;
 }
+
+.form button:hover{
+    background: rgb(110, 180, 115);
+  }
 
 button#clear span {
     transform: rotate(90deg);
@@ -198,6 +205,7 @@ input {
     border-radius: 0.5%;
     border: 2px solid #cfd1d6;
     margin-top: 5px;
+    box-shadow: 0 1px 4px 0 rgba(34, 70, 77, 0.863)
 }
 
 textarea:focus {
@@ -211,6 +219,7 @@ input:focus {
     border-color: #e2d847;
     box-shadow: 0 0 10px #e4c749;
 }
+
 
 h4 {
     margin-top: 1px;
@@ -227,6 +236,7 @@ h4 {
     border: 2px solid #cfd1d6;
     border-radius: 1px;
     padding: 0 15px;
+    box-shadow: 0 1px 4px 0 rgba(34, 70, 77, 0.863)
 }
 
 button {
@@ -234,8 +244,8 @@ button {
     margin-left: 6.2px;
     padding: 10px 20px;
     background: linear-gradient(130deg,
-            #6f6df4,
-            #2f9e14);
+            #817d81,
+            #84878a);
     color: #ffffff;
     border-radius: 3px;
 }
